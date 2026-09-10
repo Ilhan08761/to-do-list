@@ -1,0 +1,243 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: darkcyan;
+}
+
+.todoApp {
+  background-color: #fffbff;
+  width: 428px;
+  height: 926px;
+  border-radius: 8px;
+  padding: 24px 16px 16px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  position: relative;
+  overflow: hidden;
+}
+
+.todoHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.dayOfWeek {
+  color: #1d1b1e;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.currentDate {
+  color: #1d1b1e;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.searchBar {
+  width: 100%;
+  height: 48px;
+  background-color: #ece6f0;
+  border-radius: 24px;
+  padding: 4px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4px;
+}
+
+#searchInput {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  color: #1d1b1e;
+}
+
+#searchInput::placeholder {
+  color: #49454f;
+  font-weight: 400;
+}
+
+.searchIcon {
+  color: #49454f;
+  font-size: 24px;
+  user-select: none;
+}
+
+.todoFilters {
+  display: flex;
+  width: 100%;
+  gap: 4px;
+}
+
+.filterBtn {
+  flex: 1;
+  height: 48px;
+  font-size: 14px;
+  font-weight: 500;
+  background-color: transparent;
+  color: #49454f;
+  border: none;
+  border-radius: 24px;
+  cursor: pointer;
+  transition: all 0.2s easy;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.filterBtn.dynamicActive {
+  background-color: #e8def8;
+  color: #1d1b1e;
+}
+
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vw;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  display: none;
+  z-index: 100;
+}
+
+.taskList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex: 1;
+  overflow-y: auto;
+}
+
+.taskItem {
+  width: 396px;
+  height: 62px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background-color: transparent;
+}
+
+.taskContent {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.taskDate {
+  color: #49454f;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.taskText,
+.teskText {
+  color: #1d1b1e;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.checkboxWrapper {
+  position: relative;
+  width: 24px;
+  height: 24px;
+}
+
+.realCheckbox {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.customCheckbox {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 24px;
+  height: 24px;
+  border: 2px solid #79747e;
+  border-radius: 8px;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  z-index: 1;
+}
+
+.taskItem.isComplited .customCheckbox::after,
+.taskItem.isCompleted .customCheckbox::after {
+  content: "check";
+  font-family: "Material Symbols Rounded";
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: normal;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.taskItem.isComplited .customCheckbox,
+.taskItem.isCompleted .customCheckbox {
+  background-color: #6750a4;
+  border-color: #6750a4;
+}
+
+.taskItem.isComplited .taskContent,
+.taskItem.isCompleted .taskContent {
+  opacity: 0.5;
+}
+
+.taskItem.isComplited .taskText,
+.taskItem.isComplited .teskText,
+.taskItem.isCompleted .taskText {
+  text-decoration: line-through;
+}
+
+.floatingActionBtn {
+  width: 56px;
+  height: 56px;
+  border-radius: 8px;
+  background-color: #e8def8;
+  border: none;
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  z-index: 10;
+}
+
+.floatingActionBtn:hover {
+  background-color: #e2d1f2;
+}
+
+.btnIkon {
+  color: #1d1b1e;
+  font-size: 24px;
+  user-select: none;
+}
