@@ -33,29 +33,7 @@
         <button class="filterBtn">Завершенные</button>
       </div>
 
-      <ul class="taskList">
-        <li class="taskItem isCompleted">
-          <div class="checkboxWrapper">
-            <input type="checkbox" class="realCheckbox" checked disabled />
-            <span class="customCheckbox"></span>
-          </div>
-          <div class="taskContent">
-            <span class="taskDate">10 января, 11:30</span>
-            <p class="taskText">Покормить кошку</p>
-          </div>
-        </li>
-
-        <li class="taskItem">
-          <div class="checkboxWrapper">
-            <input type="checkbox" class="realCheckbox" disabled />
-            <span class="customCheckbox"></span>
-          </div>
-          <div class="taskContent">
-            <span class="taskDate">10 января, 11:30</span>
-            <p class="teskText">Покормить кошку</p>
-          </div>
-        </li>
-      </ul>
+      <ul class="taskList"></ul>
 
       <button class="floatingActionBtn" id="openModalBtn">
         <span class="material-symbols-rounded btnIcon">edit</span>
@@ -70,15 +48,15 @@
           </div>
 
           <div class="modalInputGroup">
-            <input type="text" id="taskDateInput" placeholder="Дата" />
+            <input type="date" id="taskDateInput" placeholder="Дата" />
           </div>
 
           <div class="reminderBlock">
             <span class="reminderText">Напомнить мне</span>
-            <label class="reminderCheckboxWrapper">
+            <label class="switch">
               <input type="checkbox" id="reminderToggle" checked />
-              <span class="customReminderCheckbox">
-                <span class="material-symbols-rounded"></span>
+              <span class="slider">
+                <span class="material-symbols-rounded switchIcon">check</span>
               </span>
             </label>
           </div>

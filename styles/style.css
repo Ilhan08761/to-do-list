@@ -105,16 +105,15 @@ body {
 }
 
 .modalOverlay {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  height: 100vw;
-  background-color: rgba(0, 0, 0, 0.5);
-  display: flex;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: none;
   justify-content: center;
   align-items: flex-end;
-  display: none;
   z-index: 100;
 }
 
@@ -240,4 +239,176 @@ body {
   color: #1d1b1e;
   font-size: 24px;
   user-select: none;
+}
+
+.modalContent {
+  width: 100%;
+  height: 328px;
+  background-color: #fffbff;
+  border-radius: 28px 28px 0 0;
+  padding: 16px 24px 24px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  animation: slideUp 0.3s ease-out;
+}
+
+.modalDragline {
+  width: 32px;
+  height: 4px;
+  background-color: #79747e;
+  border-radius: 2px;
+  margin: 0 auto 4px auto;
+  opacity: 0.4;
+}
+
+.modalInputGroup {
+  width: 100%;
+  height: 56px;
+}
+
+.modalInputGroup input {
+  width: 100%;
+  height: 100%;
+  background-color: #ece6f0;
+  border: none;
+  border-radius: 8px;
+  padding: 0 16px;
+  font-size: 16px;
+  color: #1d1b1e;
+  outline: none;
+}
+
+.modalInputGroup input::placeholder {
+  color: #49454f;
+  opacity: 0.8;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 52px;
+  height: 32px;
+}
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #79747e;
+  border-radius: 32px;
+  transition: background-color 0.2s ease;
+}
+
+.slider::before {
+  content: "";
+  position: absolute;
+  height: 24px;
+  width: 24px;
+  left: 4px;
+  bottom: 4px;
+  background-color: #ffffff;
+  border-radius: 50%;
+  transition: transform 0.2s ease;
+  z-index: 1;
+}
+
+.switchIcon {
+  position: absolute;
+  left: 4px;
+  bottom: 4px;
+  width: 24px;
+  height: 24px;
+  color: #6750a4;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  z-index: 2;
+  transition: transform 0.2s ease;
+}
+
+.switch input:checked + .slider {
+  background-color: #6750a4;
+}
+
+.switch input:checked + .slider::before {
+  transform: translateX(20px);
+}
+
+.switch input:checked + .slider .switchIcon {
+  transform: translateX(20px);
+}
+
+.reminderBlock {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4px 0;
+}
+
+.reminderText {
+  font-size: 16px;
+  color: #1d1b1e;
+  font-weight: 500;
+}
+
+.modalActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: auto;
+}
+
+.modalBtn {
+  width: 112px;
+  height: 40px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.btnCancel {
+  background-color: transparent;
+  color: #6750a4;
+  border: 1px solid #79747e;
+}
+.btnCancel:hover {
+  background-color: rgba(103, 80, 164, 0.08);
+}
+
+.btnAdd {
+  background-color: #6750a4;
+  color: #ffffff;
+  border: none;
+}
+.btnAdd:hover {
+  background-color: #4f378b;
+}
+
+#taskDateInput {
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+  color: #1d1b1e;
+  cursor: pointer;
+}
+
+#taskDateInput::-webkit-calendar-picker-indicator {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://w3.org' viewBox='0 0 24 24' fill='%236750A4'%3E%3Cpath d='M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11z'/%3E%3C/svg%3E");
+  cursor: pointer;
+  font-size: 20px;
 }
