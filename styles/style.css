@@ -10,13 +10,13 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background-color: darkcyan;
 }
 
 .todoApp {
   background-color: #fffbff;
   width: 428px;
-  height: 926px;
+  max-height: 926px;
+  height: 100vh;
   border-radius: 8px;
   padding: 24px 16px 16px 16px;
   display: flex;
@@ -139,6 +139,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 2px;
+  justify-content: center;
 }
 
 .taskDate {

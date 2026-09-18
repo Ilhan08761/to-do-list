@@ -51,6 +51,7 @@ saveTaskBtn.addEventListener("click", function () {
 
   taskDescInput.value = "";
   taskDateInput.value = "";
+  taskDateInput.type = "text";
   todoModal.style.display = "none";
 });
 
@@ -130,10 +131,15 @@ filterButtons.forEach(function (btn) {
   });
 });
 
-taskDateInput.addEventListener("click", function () {
+taskDateInput.addEventListener("focus", function () {
+  taskDateInput.type = "date";
   try {
     taskDateInput.showPicker();
-  } catch (error) {
-    console.log("Браузер не поддерживает автоматическое открытие", error);
+  } catch (e) {}
+});
+
+taskDateInput.addEventListener("blur", function () {
+  if (taskDateInput.value === "") {
+    taskDateInput.type = "text";
   }
 });
